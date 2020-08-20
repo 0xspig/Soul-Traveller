@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://colored_transparent.png" type="Texture" id=1]
+[ext_resource path="res://Dagger.gd" type="Script" id=2]
+[ext_resource path="res://default_material.material" type="Material" id=3]
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+bounce = 5.0
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 615, 105, 10, 10 )
+
+[node name="Dagger" type="RigidBody2D" groups=[
+"parry",
+]]
+collision_layer = 4
+collision_mask = 14
+physics_material_override = SubResource( 3 )
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 3 )
+rotation = -0.782602
+texture = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Dagger_body_entered"]

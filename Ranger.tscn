@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://colored_transparent.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.75
+height = 3.66192
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 512, 18, 12, 14 )
+
+[node name="Ranger" type="KinematicBody2D" groups=[
+"human",
+"mgk_dmg",
+"mle_dmg",
+"rng_dmg",
+]]
+z_index = 1
+input_pickable = true
+collision_mask = 27
+script = ExtResource( 1 )
+class_id = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
+texture = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
