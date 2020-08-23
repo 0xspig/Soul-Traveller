@@ -24,6 +24,7 @@ height = 19.2722
 "mle_dmg",
 "rng_dmg",
 ]]
+z_index = 4
 collision_layer = 32
 collision_mask = 31
 script = ExtResource( 2 )

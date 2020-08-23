@@ -4,7 +4,7 @@ var splat = preload("res://Hit_splat.tscn")
 var blood = preload("res://Blood.tscn")
 onready var attack_target = $"/root/Driver".slave_node
 
-enum {SLEEP, WALK, ATTACK, STUN}
+enum {SLEEP, WALK, ATTACK, STUN, DEAD}
 
 const MOVE_SPEED = 15
 var class_id = 3
@@ -123,7 +123,8 @@ func die():
 	get_parent().add_child(new_blood)
 	new_blood.position = position
 	new_blood.scale = Vector2(1.68, 1.68)
-	queue_free()
+	state = DEAD
+	rotation = PI/2
 
 func on_slave_changed():
 	attack_target = $"/root/Driver".slave_node

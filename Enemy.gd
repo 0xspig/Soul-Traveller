@@ -38,7 +38,7 @@ func _ready():
 
 func _process(delta):
 	if attack_target == null:
-		attack_target = $"/root/Driver".slave_node
+		new_attack_target()
 	time += delta
 	if !enslaved && awake:
 		ai(delta)
