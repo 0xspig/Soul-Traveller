@@ -40,7 +40,7 @@ func _process(delta):
 		$Position2D/Head.scale = Vector2(1.68,1.68) + Vector2($Position2D/Head.position.y/20, $Position2D/Head.position.y/20)
 		$Position2D/Head.rotation = 0
 		$Torso.position.y = sin(time*2) * 2
-		if walk_time > 4:
+		if walk_time > 2.5:
 			walk_time = 0
 			state = ATTACK
 	if state == ATTACK:
