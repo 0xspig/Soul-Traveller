@@ -6,6 +6,7 @@ var time = 0
 var LIFETIME = 2
 
 var caster : Node
+var caster_id
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +24,7 @@ func _on_Dagger_body_entered(body):
 	if body.is_in_group("rng_dmg"):
 		print("knifed ", str(body.name))
 		#if player gets hit by fireball
-		body.hit(caster,caster.class_id, position)
+		body.hit(caster, caster_id, position)
 		queue_free()
 		return
 	if body.is_in_group("parry"):

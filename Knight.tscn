@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://colored_transparent.png" type="Texture" id=2]
+[ext_resource path="res://sounds/enemy_oof.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.75
@@ -18,7 +19,7 @@ region = Rect2( 477, 1, 14, 14 )
 ]]
 z_index = 1
 input_pickable = true
-collision_mask = 23
+collision_mask = 55
 script = ExtResource( 1 )
 class_id = 1
 
@@ -35,3 +36,6 @@ texture = SubResource( 2 )
 position = Vector2( 0, -8.10147 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Hit_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

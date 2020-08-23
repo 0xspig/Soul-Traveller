@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Camera.gd" type="Script" id=1]
 [ext_resource path="res://light.png" type="Texture" id=2]
 [ext_resource path="res://splash.shader" type="Shader" id=3]
+[ext_resource path="res://death_screen.png" type="Texture" id=4]
 [ext_resource path="res://heart_full.png" type="Texture" id=5]
+[ext_resource path="res://uni0553-webfont.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://start_message.png" type="Texture" id=7]
+[ext_resource path="res://pixel_font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://button_hover.tres" type="StyleBox" id=9]
+[ext_resource path="res://button_pressed.tres" type="StyleBox" id=10]
+[ext_resource path="res://button_normal.tres" type="StyleBox" id=11]
+[ext_resource path="res://win.png" type="Texture" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -35,12 +43,17 @@ shader_param/show_scanlines = true
 shader_param/show_vignette = true
 shader_param/show_curvature = false
 shader_param/screen_size = Vector2( 256, 150 )
-shader_param/aberration_amount = 0.15
+shader_param/aberration_amount = 0.25
 shader_param/move_aberration = false
 shader_param/aberration_speed = 0.09
 
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 6 )
+
 [node name="Camera" type="Camera2D"]
+pause_mode = 2
 material = SubResource( 1 )
+z_index = 5
 current = true
 smoothing_enabled = true
 script = ExtResource( 1 )
@@ -76,6 +89,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Menu" type="VBoxContainer" parent="Control"]
+visible = false
+light_mask = 0
+margin_left = 76.8787
+margin_top = 28.2236
+margin_right = 184.879
+margin_bottom = 108.224
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main_menu" type="Button" parent="Control/Menu"]
+light_mask = 0
+margin_right = 108.0
+margin_bottom = 23.0
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+custom_fonts/font = SubResource( 6 )
+custom_constants/hseparation = 5
+text = "Menu"
+
+[node name="Help" type="Button" parent="Control/Menu"]
+light_mask = 0
+margin_top = 27.0
+margin_right = 108.0
+margin_bottom = 50.0
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+custom_fonts/font = SubResource( 6 )
+custom_constants/hseparation = 5
+text = "Help"
+
+[node name="Quit" type="Button" parent="Control/Menu"]
+light_mask = 0
+margin_top = 54.0
+margin_right = 108.0
+margin_bottom = 77.0
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+custom_fonts/font = SubResource( 6 )
+custom_constants/hseparation = 5
+text = "Quit"
+
 [node name="Hearts" type="HBoxContainer" parent="Control"]
 light_mask = 0
 margin_left = 191.371
@@ -105,3 +164,103 @@ margin_left = 36.0
 margin_right = 50.0
 margin_bottom = 41.0
 texture = ExtResource( 5 )
+
+[node name="Win_message" type="TextureRect" parent="Control"]
+visible = false
+light_mask = 0
+margin_top = 15.1191
+margin_right = 256.0
+margin_bottom = 90.1191
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Win_menu" type="VBoxContainer" parent="Control"]
+pause_mode = 2
+visible = false
+margin_left = 76.8787
+margin_top = 62.9813
+margin_right = 176.879
+margin_bottom = 157.981
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main_menu" type="Button" parent="Control/Win_menu"]
+pause_mode = 2
+light_mask = 0
+margin_right = 100.0
+margin_bottom = 18.0
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+custom_fonts/font = ExtResource( 8 )
+text = "Menu"
+
+[node name="Play_again" type="Button" parent="Control/Win_menu"]
+pause_mode = 2
+light_mask = 0
+margin_top = 22.0
+margin_right = 100.0
+margin_bottom = 40.0
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+custom_fonts/font = ExtResource( 8 )
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="Control/Win_menu"]
+pause_mode = 2
+light_mask = 0
+margin_top = 44.0
+margin_right = 100.0
+margin_bottom = 62.0
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+custom_fonts/font = ExtResource( 8 )
+text = "Quit"
+
+[node name="Help_image" type="TextureRect" parent="."]
+visible = false
+light_mask = 0
+margin_left = -107.841
+margin_top = -59.8809
+margin_right = 118.159
+margin_bottom = 62.1191
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" type="ColorRect" parent="."]
+light_mask = 0
+margin_left = -296.776
+margin_top = -189.755
+margin_right = 311.224
+margin_bottom = 228.245
+mouse_filter = 2
+color = Color( 0.278431, 0.176471, 0.235294, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Death_screen" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 0
+margin_left = -179.261
+margin_top = -123.318
+margin_right = 176.739
+margin_bottom = 126.682
+mouse_filter = 2
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Control/Menu/Main_menu" to="." method="_on_Main_menu_pressed"]
+[connection signal="pressed" from="Control/Menu/Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="Control/Menu/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Control/Win_menu/Main_menu" to="." method="_on_Main_menu_pressed"]
+[connection signal="pressed" from="Control/Win_menu/Play_again" to="." method="_on_Play_again_pressed"]
+[connection signal="pressed" from="Control/Win_menu/Quit" to="." method="_on_Quit_pressed"]

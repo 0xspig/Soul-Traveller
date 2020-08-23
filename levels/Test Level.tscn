@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Knight.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ranger.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Wizard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://default_material.material" type="Material" id=6]
+[ext_resource path="res://tile_map.tres" type="TileSet" id=7]
+
+[node name="Test Level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+material = ExtResource( 6 )
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 15
+format = 1
+tile_data = PoolIntArray( -458760, 103, 0, -458759, 106, 0, -458758, 106, 0, -458757, 106, 0, -458756, 106, 0, -458755, 106, 0, -458754, 106, 0, -458753, 106, 0, -524288, 106, 0, -524287, 106, 0, -524286, 106, 0, -524285, 106, 0, -524284, 106, 0, -524283, 106, 0, -524282, 106, 0, -524281, 107, 0, -393225, 103, 0, -393224, 108, 0, -393223, 29, 0, -393222, 29, 0, -393221, 29, 0, -393220, 29, 0, -393219, 29, 0, -393218, 102, 0, -393217, 29, 0, -458752, 29, 0, -458751, 29, 0, -458750, 29, 0, -458749, 29, 0, -458748, 29, 0, -458747, 29, 0, -458746, 29, 0, -458745, 109, 0, -327689, 104, 0, -327688, 29, 0, -327687, 29, 0, -327686, 29, 0, -327685, 29, 0, -327684, 3, 0, -327683, 3, 0, -327682, 108, 0, -327681, 29, 0, -393216, 29, 0, -393215, 29, 0, -393214, 29, 0, -393213, 29, 0, -393212, 116, 0, -393210, 29, 0, -393209, 109, 0, -262153, 104, 0, -262152, 29, 0, -262151, 29, 0, -262150, 29, 0, -262149, 102, 0, -262148, 102, 0, -262147, 1, 0, -262146, 3, 0, -262145, 29, 0, -327680, 26, 0, -327679, 46, 0, -327678, 29, 0, -327677, 29, 0, -327674, 29, 0, -327673, 109, 0, -196617, 104, 0, -196616, 29, 0, -196615, 29, 0, -196614, 29, 0, -196613, 29, 0, -196612, 29, 0, -196611, 102, 0, -196610, 102, 0, -196609, 29, 0, -262144, 46, 0, -262143, 62, 0, -262142, 46, 0, -262141, 26, 0, -262140, 29, 0, -262139, 29, 0, -262138, 29, 0, -262137, 109, 0, -131081, 104, 0, -131080, 29, 0, -131079, 29, 0, -131078, 116, 0, -131076, 29, 0, -131075, 1, 0, -131074, 29, 0, -131073, 29, 0, -196608, 50, 0, -196607, 50, 0, -196606, 29, 0, -196605, 29, 0, -196604, 29, 0, -196603, 29, 0, -196602, 29, 0, -196601, 111, 0, -65545, 104, 0, -65544, 29, 0, -65543, 29, 0, -65540, 29, 0, -65539, 1, 0, -65538, 29, 0, -65537, 1, 0, -131072, 29, 0, -131071, 108, 0, -131070, 29, 0, -131069, 29, 0, -131068, 29, 0, -131067, 29, 0, -131066, 109, 0, -9, 104, 0, -8, 29, 0, -7, 29, 0, -6, 29, 0, -5, 29, 0, -4, 29, 0, -3, 102, 0, -2, 116, 0, -65536, 29, 0, -65535, 108, 0, -65534, 108, 0, -65533, 29, 0, -65532, 29, 0, -65531, 29, 0, -65530, 115, 0, 65527, 104, 0, 65528, 29, 0, 65529, 29, 0, 65530, 29, 0, 65531, 29, 0, 65532, 29, 0, 65533, 104, 0, 65534, 50, 0, 65535, 50, 0, 0, 50, 0, 1, 50, 0, 2, 50, 0, 3, 50, 0, 4, 50, 0, 5, 109, 0, 6, 29, 0, 7, 29, 0, 8, 29, 0, 131063, 105, 0, 131064, 29, 0, 131065, 29, 0, 131066, 29, 0, 131067, 29, 0, 131068, 29, 0, 131069, 104, 0, 131070, 29, 0, 131071, 29, 0, 65536, 29, 0, 65537, 29, 0, 65538, 29, 0, 65539, 29, 0, 65540, 29, 0, 65541, 109, 0, 65542, 29, 0, 65543, 29, 0, 196600, 113, 0, 196601, 29, 0, 196602, 29, 0, 196603, 29, 0, 196604, 29, 0, 196605, 104, 0, 196606, 29, 0, 196607, 29, 0, 131072, 29, 0, 131073, 29, 0, 131074, 29, 0, 131075, 29, 0, 131076, 29, 0, 131077, 109, 0, 262137, 105, 0, 262138, 110, 0, 262139, 110, 0, 262140, 110, 0, 262141, 105, 0, 262142, 110, 0, 262143, 110, 0, 196608, 110, 0, 196609, 110, 0, 196610, 110, 0, 196611, 110, 0, 196612, 110, 0, 196613, 115, 0, 262145, 29, 0, 262146, 98, 0, 262147, 98, 0, 262148, 98, 0, 262149, 99, 0 )
+
+[node name="Knight" parent="." instance=ExtResource( 1 )]
+position = Vector2( 93.567, -50.9182 )
+
+[node name="Knight2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 60.2692, -43.783 )
+
+[node name="Knight3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -60.2393, -62.0533 )
+
+[node name="Knight4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8.69115, -29.8432 )
+
+[node name="Knight5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -61.1815, -19.207 )
+
+[node name="Knight6" parent="." instance=ExtResource( 1 )]
+position = Vector2( -91.4274, -35.6228 )
+
+[node name="Knight7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 35.737, -30.4044 )
+
+[node name="Knight8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 45.2507, -46.1614 )
+
+[node name="Wizard" parent="." instance=ExtResource( 3 )]
+position = Vector2( 49.2448, -85.886 )
+
+[node name="Wizard3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -62.5934, -93.7538 )
+
+[node name="Wizard4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -33.3245, -41.667 )
+
+[node name="Wizard5" parent="." instance=ExtResource( 3 )]
+position = Vector2( -112.934, -62.6601 )
+
+[node name="Wizard6" parent="." instance=ExtResource( 3 )]
+position = Vector2( -0.404598, -88.859 )
+
+[node name="Wizard7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 27.1989, -13.6099 )
+
+[node name="Wizard8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 29.0283, -51.6963 )
+
+[node name="Wizard9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 68.2721, -57.0477 )
+
+[node name="Wizard10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 49.2448, -20.4796 )
+
+[node name="Wizard2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -97.4916, -85.886 )
+
+[node name="Ranger" parent="." instance=ExtResource( 2 )]
+position = Vector2( 14.9259, -96.7031 )
+
+[node name="Ranger3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 26.5207, -78.2704 )
+
+[node name="Ranger4" parent="." instance=ExtResource( 2 )]
+position = Vector2( -30.3216, -20.4408 )
+
+[node name="Ranger5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 73.4944, -98.4869 )
+
+[node name="Ranger6" parent="." instance=ExtResource( 2 )]
+position = Vector2( -87.9839, -5.99899 )
+
+[node name="Ranger7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 61.0077, -69.3513 )
+
+[node name="Ranger8" parent="." instance=ExtResource( 2 )]
+position = Vector2( -2.70731, -59.3265 )
+
+[node name="Ranger9" parent="." instance=ExtResource( 2 )]
+position = Vector2( -33.3929, -96.3024 )
+
+[node name="Ranger10" parent="." instance=ExtResource( 2 )]
+position = Vector2( -114.718, -14.6281 )
+
+[node name="Ranger2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -87.5274, 22.5634 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+material = ExtResource( 6 )
+position = Vector2( 5.47969, 34.1886 )
+
+[node name="Camera" parent="." instance=ExtResource( 4 )]

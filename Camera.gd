@@ -10,6 +10,9 @@ var heart_empty = preload("res://heart_empty.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"/root/Driver".camera = self
+	$Tween.interpolate_property($Transition, "color", Color(0, 0, 0, 1), Color(0, 0, 0, 0), .6)
+	$Tween.start()
+	get_tree().paused = false
 
 func _process(delta):
 	if $"/root/Driver".slave_node == null:
@@ -29,7 +32,7 @@ func splash(time):
 								2.0, 0.0, time/2, Tween.TRANS_SINE, Tween.EASE_OUT)
 	$Tween.start()
 	yield($Tween, "tween_completed")
-	$WarpFilter.material.set_shader_param("aberration_amount", .15)
+	$WarpFilter.material.set_shader_param("aberration_amount", .25)
 	$WarpFilter.material.set_shader_param("move_aberration", false)
 
 func update_health(health):
@@ -44,3 +47,32 @@ func update_health(health):
 		else:
 			$Control/Hearts.get_child(i).texture = heart_empty
 	$Tween.start()
+
+func fade():
+	$Tween.interpolate_property($Transition, "color", Color(0, 0, 0, 0), Color(0, 0, 0, 1), .6)
+	$Tween.start()
+
+func death():
+	$Tween.interpolate_property($Death_screen, "modulate", Color(0, 0, 0, 0), Color(1, 1, 1, 1), 1)
+	$Tween.start()
+
+
+func _on_Main_menu_pressed():
+	$"/root/Driver".change_scene("res://Main_menu.tscn")
+
+
+func _on_Quit_pressed():
+	get_tree().quit()
+
+
+func _on_Help_pressed():
+	$Help_image.visible = true
+
+func win():
+	get_tree().paused = true
+	$Control/Win_menu.visible = true
+	$Control/Win_message.visible = true
+	
+
+func _on_Play_again_pressed():
+	$"/root/Driver".change_scene("res://levels/Level 1.tscn")

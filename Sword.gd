@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+export var boss = false
 
 var caster : Node
 
@@ -15,6 +16,11 @@ func _ready():
 
 func _on_Sword_body_entered(body):
 	if body.is_in_group("mle_dmg"):
+		print("sliced ", str(body.name))
+		#if player gets hit by fireball
+		body.hit(caster, caster.class_id, position)
+		return
+	if boss && body.is_in_group("human"):
 		print("sliced ", str(body.name))
 		#if player gets hit by fireball
 		body.hit(caster, caster.class_id, position)

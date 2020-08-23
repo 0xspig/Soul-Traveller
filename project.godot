@@ -15,18 +15,22 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Miz Jam 1"
-run/main_scene="res://Test Level.tscn"
-config/icon="res://icon.png"
+config/name="Soul Traveller"
+run/main_scene="res://Main_menu.tscn"
+config/icon="res://heart_empty.png"
 
 [autoload]
 
 Driver="*res://driver.gd"
+Audio="*res://Audio.tscn"
 
 [display]
 
 window/size/width=256
 window/size/height=150
+window/size/borderless=true
+window/size/fullscreen=true
+mouse_cursor/custom_image="res://cursor.png"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -80,6 +84,21 @@ attack={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+open={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+restart={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
+ ]
+}
+return={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -88,6 +107,7 @@ attack={
 2d_physics/layer_3="range"
 2d_physics/layer_4="melee"
 2d_physics/layer_5="parry"
+2d_physics/layer_6="boss"
 
 [rendering]
 
